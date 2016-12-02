@@ -18,19 +18,38 @@ const HOC = selectOnFocus('input')
 
 render(
   <div>
-    {[
-      <HOC type="text" />,
-      <Input type="text" width="200" />,
-      <TextArea rows="3" />,
-      <Input onFocus={() => console.log('focus')} />,
-      <Input onFocus={() => false} />,
-      <Input onFocus={(e) => e.preventDefault()} />,
-      <Input onFocus={(e) => e.stopPropagation()} />,
-      <Input onFocus={(e) => e.nativeEvent.stopImmediatePropagation()} />,
-      <Stateful />
-    ].map((e, i) => {
-      return <div key={i}>{React.cloneElement(e, {defaultValue: i})}</div>
-    })}
-  </div>,
+    <h1><a href="https://github.com/AndersDJohnson/react-select-on-focus">react-select-on-focus</a></h1>
+    <table>
+      <tbody>
+        {[
+          <Input type="text" />,
+          <TextArea rows="3" />,
+          <h2>Custom `onFocus`</h2>,
+          [<Input onFocus={() => console.log('focus')} />, 'Logs'],
+          [<Input onFocus={() => false} />, 'Return false'],
+          [<Input onFocus={(e) => e.preventDefault()} />, 'Prevent default'],
+          [<Input onFocus={(e) => e.stopPropagation()} />, 'Stop propagation (no effect)'],
+          [<Input onFocus={(e) => e.nativeEvent.stopImmediatePropagation()} />, 'Stop immediate propagation (no effect)'],
+          <h2>Custom HOC</h2>,
+          <HOC type="text" />,
+          <h2>Stateful</h2>,
+          <Stateful />
+        ].map((e, i) => {
+          let m
+          if (Array.isArray(e)) {
+            m = e[1]
+            e = e[0]
+          }
+          return <tr key={i}>
+            <td>
+              {React.cloneElement(e, {defaultValue: i})}
+            </td>
+            <td>{m}</td>
+          </tr>
+        })}
+      </tbody>
+    </table>
+  </div>
+  ,
   document.getElementById('app')
 )

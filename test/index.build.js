@@ -54,7 +54,7 @@
 
 	var _reactDom = __webpack_require__(32);
 
-	var _selectOnFocus = __webpack_require__(181);
+	var _selectOnFocus = __webpack_require__(178);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -97,23 +97,66 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  'div',
 	  null,
-	  [_react2.default.createElement(HOC, { type: 'text' }), _react2.default.createElement(_selectOnFocus.Input, { type: 'text', width: '200' }), _react2.default.createElement(_selectOnFocus.TextArea, { rows: '3' }), _react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
-	      return console.log('focus');
-	    } }), _react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
-	      return false;
-	    } }), _react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
-	      return e.preventDefault();
-	    } }), _react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
-	      return e.stopPropagation();
-	    } }), _react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
-	      return e.nativeEvent.stopImmediatePropagation();
-	    } }), _react2.default.createElement(Stateful, null)].map(function (e, i) {
-	    return _react2.default.createElement(
-	      'div',
-	      { key: i },
-	      _react2.default.cloneElement(e, { defaultValue: i })
-	    );
-	  })
+	  _react2.default.createElement(
+	    'h1',
+	    null,
+	    _react2.default.createElement(
+	      'a',
+	      { href: 'https://github.com/AndersDJohnson/react-select-on-focus' },
+	      'react-select-on-focus'
+	    )
+	  ),
+	  _react2.default.createElement(
+	    'table',
+	    null,
+	    _react2.default.createElement(
+	      'tbody',
+	      null,
+	      [_react2.default.createElement(_selectOnFocus.Input, { type: 'text' }), _react2.default.createElement(_selectOnFocus.TextArea, { rows: '3' }), _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Custom `onFocus`'
+	      ), [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
+	          return console.log('focus');
+	        } }), 'Logs'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
+	          return false;
+	        } }), 'Return false'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	          return e.preventDefault();
+	        } }), 'Prevent default'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	          return e.stopPropagation();
+	        } }), 'Stop propagation (no effect)'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	          return e.nativeEvent.stopImmediatePropagation();
+	        } }), 'Stop immediate propagation (no effect)'], _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Custom HOC'
+	      ), _react2.default.createElement(HOC, { type: 'text' }), _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Stateful'
+	      ), _react2.default.createElement(Stateful, null)].map(function (e, i) {
+	        var m = void 0;
+	        if (Array.isArray(e)) {
+	          m = e[1];
+	          e = e[0];
+	        }
+	        return _react2.default.createElement(
+	          'tr',
+	          { key: i },
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            _react2.default.cloneElement(e, { defaultValue: i })
+	          ),
+	          _react2.default.createElement(
+	            'td',
+	            null,
+	            m
+	          )
+	        );
+	      })
+	    )
+	  )
 	), document.getElementById('app'));
 
 /***/ },
@@ -21566,54 +21609,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 178 */,
-/* 179 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = domFocus;
-	function domFocus(node) {
-	  if ('selectionStart' in node) {
-	    node.selectionStart = 0;
-	    node.selectionEnd = 9999;
-	  } else {
-	    node.select();
-	  }
-	}
-
-/***/ },
-/* 180 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = domEventStopped;
-	exports.returnCancels = returnCancels;
-	function domEventStopped(event, callback) {
-	  var returnValue = void 0;
-	  if (callback) {
-	    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	      args[_key - 2] = arguments[_key];
-	    }
-
-	    returnValue = callback.apply(undefined, [event].concat(args));
-	  }
-	  return returnCancels(returnValue) || event.defaultPrevented;
-	}
-
-	function returnCancels(returnValue) {
-	  return returnValue !== undefined && !returnValue;
-	}
-
-/***/ },
-/* 181 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21656,6 +21652,112 @@
 
 	var Input = exports.Input = selectOnFocus('input');
 	var TextArea = exports.TextArea = selectOnFocus('textarea');
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports !== "undefined") {
+	    factory(exports);
+	  } else {
+	    var mod = {
+	      exports: {}
+	    };
+	    factory(mod.exports);
+	    global.domInputSelect = mod.exports;
+	  }
+	})(this, function (exports) {
+	  "use strict";
+
+	  (function (global, factory) {
+	    if (true) {
+	      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else if (typeof exports !== "undefined") {
+	      factory(exports);
+	    } else {
+	      var mod = {
+	        exports: {}
+	      };
+	      factory(mod.exports);
+	      global.domInputSelect = mod.exports;
+	    }
+	  })(undefined, function (exports) {
+	    'use strict';
+
+	    Object.defineProperty(exports, "__esModule", {
+	      value: true
+	    });
+	    exports.default = domFocus;
+	    function domFocus(node) {
+	      if ('selectionStart' in node) {
+	        node.selectionStart = 0;
+	        node.selectionEnd = 9999;
+	      } else {
+	        node.select();
+	      }
+	    }
+	  });
+	});
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports !== "undefined") {
+	    factory(exports);
+	  } else {
+	    var mod = {
+	      exports: {}
+	    };
+	    factory(mod.exports);
+	    global.domEventStopped = mod.exports;
+	  }
+	})(this, function (exports) {
+	  "use strict";
+
+	  (function (global, factory) {
+	    if (true) {
+	      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else if (typeof exports !== "undefined") {
+	      factory(exports);
+	    } else {
+	      var mod = {
+	        exports: {}
+	      };
+	      factory(mod.exports);
+	      global.domEventStopped = mod.exports;
+	    }
+	  })(undefined, function (exports) {
+	    "use strict";
+
+	    Object.defineProperty(exports, "__esModule", {
+	      value: true
+	    });
+	    exports.default = domEventStopped;
+	    exports.returnCancels = returnCancels;
+	    function domEventStopped(event, callback) {
+	      var returnValue = void 0;
+	      if (callback) {
+	        for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	          args[_key - 2] = arguments[_key];
+	        }
+
+	        returnValue = callback.apply(undefined, [event].concat(args));
+	      }
+	      return returnCancels(returnValue) || event.defaultPrevented;
+	    }
+
+	    function returnCancels(returnValue) {
+	      return returnValue !== undefined && !returnValue;
+	    }
+	  });
+	});
 
 /***/ }
 /******/ ]);
