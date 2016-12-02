@@ -54,7 +54,7 @@
 
 	var _reactDom = __webpack_require__(32);
 
-	var _selectOnFocus = __webpack_require__(178);
+	var _autoselect = __webpack_require__(181);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -83,7 +83,7 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      return _react2.default.createElement(_selectOnFocus.Input, { value: this.state.value, onChange: function onChange(e) {
+	      return _react2.default.createElement(_autoselect.Input, { value: this.state.value, onChange: function onChange(e) {
 	          return _this2.setState({ value: e.target.value });
 	        } });
 	    }
@@ -92,7 +92,7 @@
 	  return Stateful;
 	}(_react2.default.Component);
 
-	var HOC = (0, _selectOnFocus.selectOnFocus)('input');
+	var HOC = (0, _autoselect.selectOnFocus)('input');
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	  'div',
@@ -102,8 +102,8 @@
 	    null,
 	    _react2.default.createElement(
 	      'a',
-	      { href: 'https://github.com/AndersDJohnson/react-select-on-focus' },
-	      'react-select-on-focus'
+	      { href: 'https://github.com/AndersDJohnson/react-autoselect' },
+	      'react-autoselect'
 	    )
 	  ),
 	  _react2.default.createElement(
@@ -112,19 +112,19 @@
 	    _react2.default.createElement(
 	      'tbody',
 	      null,
-	      [_react2.default.createElement(_selectOnFocus.Input, { type: 'text' }), _react2.default.createElement(_selectOnFocus.TextArea, { rows: '3' }), _react2.default.createElement(
+	      [_react2.default.createElement(_autoselect.Input, { type: 'text' }), _react2.default.createElement(_autoselect.TextArea, { rows: '3' }), _react2.default.createElement(
 	        'h2',
 	        null,
 	        'Custom `onFocus`'
-	      ), [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
+	      ), [_react2.default.createElement(_autoselect.Input, { onFocus: function onFocus() {
 	          return console.log('focus');
-	        } }), 'Logs'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus() {
+	        } }), 'Logs'], [_react2.default.createElement(_autoselect.Input, { onFocus: function onFocus() {
 	          return false;
-	        } }), 'Return false'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	        } }), 'Return false'], [_react2.default.createElement(_autoselect.Input, { onFocus: function onFocus(e) {
 	          return e.preventDefault();
-	        } }), 'Prevent default'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	        } }), 'Prevent default'], [_react2.default.createElement(_autoselect.Input, { onFocus: function onFocus(e) {
 	          return e.stopPropagation();
-	        } }), 'Stop propagation (no effect)'], [_react2.default.createElement(_selectOnFocus.Input, { onFocus: function onFocus(e) {
+	        } }), 'Stop propagation (no effect)'], [_react2.default.createElement(_autoselect.Input, { onFocus: function onFocus(e) {
 	          return e.nativeEvent.stopImmediatePropagation();
 	        } }), 'Stop immediate propagation (no effect)'], _react2.default.createElement(
 	        'h2',
@@ -21609,51 +21609,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.TextArea = exports.Input = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	exports.selectOnFocus = selectOnFocus;
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _domInputSelect = __webpack_require__(179);
-
-	var _domInputSelect2 = _interopRequireDefault(_domInputSelect);
-
-	var _domEventStopped = __webpack_require__(180);
-
-	var _domEventStopped2 = _interopRequireDefault(_domEventStopped);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function onFocus(props, e) {
-	  if ((0, _domEventStopped2.default)(e, props.onFocus)) return false;
-	  (0, _domInputSelect2.default)(e.target);
-	}
-
-	function selectOnFocus(WrappedComponent) {
-	  return function SelectOnFocus() {
-	    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-	    return _react2.default.createElement(WrappedComponent, _extends({}, props, { onFocus: onFocus.bind(null, props) }));
-	  };
-	}
-
-	var Input = exports.Input = selectOnFocus('input');
-	var TextArea = exports.TextArea = selectOnFocus('textarea');
-
-/***/ },
+/* 178 */,
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21758,6 +21714,51 @@
 	    }
 	  });
 	});
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.TextArea = exports.Input = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.selectOnFocus = selectOnFocus;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _domInputSelect = __webpack_require__(179);
+
+	var _domInputSelect2 = _interopRequireDefault(_domInputSelect);
+
+	var _domEventStopped = __webpack_require__(180);
+
+	var _domEventStopped2 = _interopRequireDefault(_domEventStopped);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function onFocus(props, e) {
+	  if ((0, _domEventStopped2.default)(e, props.onFocus)) return false;
+	  (0, _domInputSelect2.default)(e.target);
+	}
+
+	function selectOnFocus(WrappedComponent) {
+	  return function SelectOnFocus() {
+	    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	    return _react2.default.createElement(WrappedComponent, _extends({}, props, { onFocus: onFocus.bind(null, props) }));
+	  };
+	}
+
+	var Input = exports.Input = selectOnFocus('input');
+	var TextArea = exports.TextArea = selectOnFocus('textarea');
 
 /***/ }
 /******/ ]);

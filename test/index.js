@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import {selectOnFocus, Input, TextArea} from '../src/select-on-focus'
+import {selectOnFocus, Input, TextArea} from '../src/autoselect'
 
 class Stateful extends React.Component {
   constructor() {
@@ -18,7 +18,7 @@ const HOC = selectOnFocus('input')
 
 render(
   <div>
-    <h1><a href="https://github.com/AndersDJohnson/react-select-on-focus">react-select-on-focus</a></h1>
+    <h1><a href="https://github.com/AndersDJohnson/react-autoselect">react-autoselect</a></h1>
     <table>
       <tbody>
         {[

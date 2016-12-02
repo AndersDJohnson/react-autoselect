@@ -1,10 +1,10 @@
-# react-select-on-focus
+# react-autoselect
 Select-on-focus fields for ReactJS.
 
 ```
 import React from 'react'
 import {render} from 'react-dom'
-import {Input, TextArea} from 'react-select-on-focus'
+import {Input, TextArea} from 'react-autoselect'
 
 render(
   <div>
@@ -21,4 +21,3 @@ Custom `onFocus`, including cancelling the select by returning false or preventi
 <Input onFocus={() => false} />
 <Input onFocus={(e) => e.preventDefault()} />
 ```
-

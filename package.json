@@ -1,8 +1,8 @@
 {
-  "name": "react-select-on-focus",
+  "name": "react-autoselect",
   "version": "1.0.0",
   "description": "Select-on-focus fields for ReactJS.",
-  "main": "build/select-on-focus.js",
+  "main": "build/autoselect.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:src && npm run build:test",
