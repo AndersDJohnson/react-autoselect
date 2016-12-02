@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:src && npm run build:test",
-    "build:src": "babel src/select-on-focus.js -o build/select-on-focus.js",
+    "build:src": "babel src -d build",
     "build:test": "webpack"
   },
   "author": "Anders D. Johnson",
