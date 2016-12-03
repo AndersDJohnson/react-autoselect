@@ -1,6 +1,6 @@
 {
   "name": "react-autoselect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Select-on-focus fields for ReactJS.",
   "main": "build/autoselect.js",
   "scripts": {
