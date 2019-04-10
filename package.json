@@ -1,6 +1,6 @@
 {
   "name": "react-autoselect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Select-on-focus fields for ReactJS.",
   "main": "build/autoselect.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build:src": "babel src -d build",
     "build:test": "webpack"
   },
-  "author": "Anders D. Johnson",
+  "author": "Anders D. Johnson (https://andersdjohnson.com)",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.18.0",
